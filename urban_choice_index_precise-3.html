@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Urban Choice — modern fashion, shoes and accessories.">
+<title>Urban Choice | Your Style. Your Choice.</title>
+<style>
+:root{--ink:#171717;--muted:#666;--bg:#faf9f7;--card:#fff;--accent:#b56b45;--line:#e8e3de}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(250,249,247,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;letter-spacing:.08em;font-size:1.15rem}.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:24px;font-size:.92rem}.navlinks a:hover{color:var(--accent)}
+.menu{display:none;border:0;background:none;font-size:1.5rem}
+.hero{min-height:620px;display:grid;place-items:center;background:linear-gradient(90deg,rgba(15,15,15,.72),rgba(15,15,15,.18)),url('https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1800&q=85') center/cover;color:white}
+.hero .container{padding:90px 0}.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.75rem}.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.98;max-width:780px;margin:16px 0}.hero p{max-width:580px;font-size:1.08rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:13px 20px;border-radius:999px;font-weight:700;border:1px solid transparent;cursor:pointer}.primary{background:var(--accent);color:#fff}.secondary{background:#fff;color:#171717}.outline{border-color:var(--ink);background:transparent}.section{padding:82px 0}.section h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;margin:8px 0 14px}.sectionhead{max-width:680px;margin-bottom:38px}.kicker{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.about img{width:100%;height:470px;object-fit:cover;border-radius:24px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.category,.product,.benefit{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}.category img,.product img{width:100%;height:250px;object-fit:cover}.category div,.product div,.benefit{padding:20px}.category h3,.product h3{margin:0 0 5px}.muted{color:var(--muted)}
+.products{grid-template-columns:repeat(3,1fr)}.product img{height:320px}.price{font-weight:800;margin:10px 0}.tag{display:inline-block;font-size:.72rem;padding:5px 9px;border-radius:999px;background:#f0e5dd;color:#77462e}
+.benefits{grid-template-columns:repeat(4,1fr)}.benefit{padding:25px}.benefit b{font-size:1.05rem}.offer{background:#201b18;color:#fff;border-radius:28px;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:30px}.offer p{color:#ddd}
+.faq{max-width:800px}.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;margin:10px 0;padding:18px 20px}.faq summary{font-weight:800;cursor:pointer}
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px}.form{background:#fff;border:1px solid var(--line);padding:28px;border-radius:22px}.form label{display:block;font-weight:700;font-size:.9rem;margin:13px 0 6px}.form input,.form textarea,.form select{width:100%;padding:13px;border:1px solid #d9d3cd;border-radius:10px;font:inherit}.form textarea{min-height:130px;resize:vertical}
+footer{background:#181513;color:#fff;padding:55px 0 25px}.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.foot a{color:#ddd;display:block;margin:6px 0}.copy{border-top:1px solid #403a36;margin-top:30px;padding-top:18px;color:#aaa;font-size:.85rem}
+.chatbtn{position:fixed;right:20px;bottom:20px;z-index:30;border:0;border-radius:999px;background:var(--accent);color:white;padding:15px 19px;font-weight:800;box-shadow:0 10px 30px #0003;cursor:pointer}.chat{position:fixed;right:20px;bottom:78px;width:min(360px,calc(100% - 40px));height:470px;background:white;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 50px #0003;z-index:31;display:none;overflow:hidden}.chat.open{display:flex;flex-direction:column}.chathead{background:#201b18;color:#fff;padding:16px;display:flex;justify-content:space-between}.chathead button{background:none;border:0;color:#fff;font-size:1.2rem}.messages{flex:1;padding:15px;overflow:auto;background:#faf8f6}.msg{max-width:85%;padding:10px 12px;border-radius:14px;margin:8px 0;font-size:.9rem}.bot{background:#eee7e1}.user{background:var(--accent);color:#fff;margin-left:auto}.quick{display:flex;gap:7px;flex-wrap:wrap;padding:10px;border-top:1px solid var(--line)}.quick button{border:1px solid #ddd;background:#fff;border-radius:999px;padding:7px 9px;cursor:pointer}.chatinput{display:flex;border-top:1px solid var(--line)}.chatinput input{flex:1;border:0;padding:12px;outline:0}.chatinput button{border:0;background:var(--accent);color:#fff;padding:0 15px}
+@media(max-width:850px){.navlinks{display:none}.menu{display:block}.grid,.benefits{grid-template-columns:repeat(2,1fr)}.about,.contact{grid-template-columns:1fr}.hero{min-height:570px}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid,.products,.benefits{grid-template-columns:1fr}.section{padding:60px 0}.offer{padding:32px;display:block}.about img{height:330px}.foot{grid-template-columns:1fr}.hero h1{font-size:3.2rem}}
+</style>
+</head>
+<body>
+<nav><div class="container navin">
+<a class="logo" href="#home">URBAN <span>CHOICE</span></a>
+<div class="navlinks"><a href="#home">Home</a><a href="#about">About</a><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#offers">Offers</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+<button class="menu" onclick="alert('Use the page sections below to browse Urban Choice.')">☰</button>
+</div></nav>
+
+<header class="hero" id="home"><div class="container">
+<div class="eyebrow">Modern Nigerian Fashion</div>
+<h1>Your Style.<br>Your Choice.</h1>
+<p>Discover clothing, shoes and accessories designed to make everyday fashion simple, expressive and convenient.</p>
+<div class="actions"><a class="btn primary" href="#shop">Shop Now</a><a class="btn secondary" href="#categories">Explore Collections</a></div>
+</div></header>
+
+<section class="section" id="about"><div class="container about">
+<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85" alt="Fashion store">
+<div><div class="kicker">About Urban Choice</div><h2>Fashion made easier.</h2><p>Urban Choice is a modern fashion retail concept offering clothing, footwear and accessories in one convenient place.</p><p>Our digital experience helps customers browse categories, discover products, ask questions and make enquiries quickly.</p><a class="btn outline" href="#contact">Make an Enquiry</a></div>
+</div></section>
+
+<section class="section" id="categories"><div class="container"><div class="sectionhead"><div class="kicker">Shop by category</div><h2>Find your everyday style.</h2><p class="muted">Explore our key fashion categories. Product details can be updated as the Urban Choice catalogue grows.</p></div>
+<div class="grid">
+<div class="category"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Clothing"><div><h3>Clothing</h3><p class="muted">Everyday pieces and stylish looks.</p><a href="#shop">View Products →</a></div></div>
+<div class="category"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Shoes"><div><h3>Shoes</h3><p class="muted">Footwear for different occasions.</p><a href="#shop">View Products →</a></div></div>
+<div class="category"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80" alt="Bags"><div><h3>Bags</h3><p class="muted">Practical and fashionable carry options.</p><a href="#shop">View Products →</a></div></div>
+<div class="category"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80" alt="Accessories"><div><h3>Accessories</h3><p class="muted">Finishing touches for your look.</p><a href="#shop">View Products →</a></div></div>
+</div></div></section>
+
+<section class="section" id="shop"><div class="container"><div class="sectionhead"><div class="kicker">Featured</div><h2>Discover the collection.</h2><p class="muted">These are illustrative demo prices for the presentation. Replace them with Urban Choice's verified catalogue prices before real customer use.</p></div>
+<div class="grid products">
+<div class="product"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80" alt="Fashion outfit"><div><span class="tag">Featured</span><h3>Urban Everyday Look</h3><p class="muted">Demo product — details to be updated.</p><div class="price">₦18,500</div><button class="btn primary" onclick="openChat('I want to ask about the Urban Everyday Look.')">Enquire Now</button></div></div>
+<div class="product"><img src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=900&q=80" alt="Sneakers"><div><span class="tag">Popular</span><h3>Street Sneakers</h3><p class="muted">Demo product — details to be updated.</p><div class="price">₦32,000</div><button class="btn primary" onclick="openChat('I want to ask about the Street Sneakers.')">Enquire Now</button></div></div>
+<div class="product"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80" alt="Bag"><div><span class="tag">New</span><h3>Everyday Bag</h3><p class="muted">Demo product — details to be updated.</p><div class="price">₦24,500</div><button class="btn primary" onclick="openChat('I want to ask about the Everyday Bag.')">Enquire Now</button></div></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="sectionhead"><div class="kicker">Why Urban Choice</div><h2>A simpler way to explore fashion.</h2></div><div class="grid benefits">
+<div class="benefit"><b>🛍️ Variety</b><p class="muted">Explore clothing, shoes, bags and accessories in one place.</p></div>
+<div class="benefit"><b>💬 Easy Enquiries</b><p class="muted">Ask questions quickly through the Urban Choice Assistant.</p></div>
+<div class="benefit"><b>📱 Convenient</b><p class="muted">Browse comfortably on mobile or desktop.</p></div>
+<div class="benefit"><b>🤝 Support</b><p class="muted">Get help when you need more information from the team.</p></div>
+</div></div></section>
+
+<section class="section" id="offers"><div class="container"><div class="offer"><div><div class="kicker">Offers & announcements</div><h2>Something new is always around the corner.</h2><p>Use this space for verified Urban Choice promotions, new arrivals and seasonal announcements.</p></div><a class="btn secondary" href="#contact">View Latest Offers</a></div></div></section>
+
+<section class="section" id="faq"><div class="container faq"><div class="sectionhead"><div class="kicker">FAQ</div><h2>Questions? Start here.</h2></div>
+<details><summary>What products does Urban Choice sell?</summary><p>Urban Choice focuses on clothing, shoes, bags and fashion accessories.</p></details>
+<details><summary>How can I enquire about a product?</summary><p>Use the Urban Choice Assistant or the enquiry form below. For the most current product information, a staff member can assist.</p></details>
+<details><summary>Do you offer delivery?</summary><p>Delivery information has not been provided for this demo. Please contact Urban Choice staff for the current delivery policy.</p></details>
+<details><summary>How can I find out the price of a product?</summary><p>Ask the Urban Choice Assistant or contact the business. The demo catalogue does not invent product prices.</p></details>
+<details><summary>How can I contact customer support?</summary><p>Use the enquiry form below or the chatbot to start a general enquiry.</p></details>
+</div></section>
+
+<section class="section" id="contact"><div class="container contact"><div><div class="kicker">Contact Urban Choice</div><h2>Let's help you find what you need.</h2><p class="muted">Send an enquiry and a staff member can provide the latest information.</p><p><b>Phone:</b> 08144104615</p><p><b>Email:</b> group4bts@gmail.com</p><p><b>Location:</b> [Add physical location]</p></div>
+<form class="form" onsubmit="submitForm(event)"><label>Name</label><input required placeholder="Your name"><label>Email or phone number</label><input required placeholder="How can we reach you?"><label>Product or category</label><select><option>General enquiry</option><option>Clothing</option><option>Shoes</option><option>Bags</option><option>Accessories</option></select><label>Message</label><textarea required placeholder="Tell us what you would like to know..."></textarea><button class="btn primary" type="submit">Send Enquiry</button></form></div></section>
+
+<footer><div class="container foot"><div><div class="logo">URBAN <span>CHOICE</span></div><p>Modern fashion, simple choices. Clothing, shoes and accessories with convenient digital support.</p></div><div><b>Explore</b><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#offers">Offers</a><a href="#faq">FAQ</a></div><div><b>Connect</b><a href="#contact">Contact</a><a href="#" onclick="openChat();return false">Chat with us</a><a href="#">Urban Choice Socials</a></div></div><div class="container copy">© 2026 Urban Choice. Demo website — replace bracketed placeholders with verified business information.</div></footer>
+
+<div class="chat" id="chat"><div class="chathead"><div><b>Urban Choice Assistant</b><br><small>Friendly shopping support • Ask me anything 😊</small></div><button onclick="toggleChat()">×</button></div><div class="messages" id="messages"><div class="msg bot">Hi there! 👋🏽✨ Welcome to Urban Choice! I'm your friendly Urban Choice Assistant, and I'm happy to help you. What would you like to know today? 😊</div></div><div class="quick"><button onclick="ask('What products do you sell?')">Products</button><button onclick="ask('How do I check a price?')">Prices</button><button onclick="ask('Do you offer delivery?')">Delivery</button><button onclick="ask('How can I contact support?')">Support</button></div><div class="chatinput"><input id="chatInput" placeholder="Type your question..." onkeydown="if(event.key==='Enter')send()"><button onclick="send()">Send</button></div></div>
+<button class="chatbtn" onclick="toggleChat()">💬 Chat with us</button>
+
+<script>
+function toggleChat(){document.getElementById('chat').classList.toggle('open')}
+function openChat(text){document.getElementById('chat').classList.add('open');if(text) ask(text)}
+function addMsg(text,who){const box=document.getElementById('messages');const d=document.createElement('div');d.className='msg '+who;if(who==='bot'){d.innerHTML=text}else{d.textContent=text}box.appendChild(d);box.scrollTop=box.scrollHeight}
+function reply(q){
+let x=q.toLowerCase().trim();
+let staff='<a href="tel:08144104615" style="color:inherit;font-weight:800">08144104615</a>';
+
+if(/^(hi|hello|hey|hey there|good morning|good afternoon|good evening|hiya|howdy)\b/.test(x))
+return'Heyyy! 👋🏽💕 Welcome to <b>Urban Choice</b>! I’m your friendly shopping assistant. What can I help you find today? 😊';
+
+if(x.includes('how are you')||x.includes('how r u'))
+return'I’m doing great, thank you for asking! 😄💕 I’m ready to help you shop. What are you looking for today?';
+
+if((x.includes('price')||x.includes('cost')||x.includes('how much')) && (x.includes('street sneaker')||x.includes('sneaker')||x.includes('trainer')))
+return'The <b>Street Sneakers</b> are <b>₦32,000</b> in this presentation demo. 👟✨';
+
+if((x.includes('price')||x.includes('cost')||x.includes('how much')) && (x.includes('everyday bag')||x.includes('bag')))
+return'The <b>Everyday Bag</b> is <b>₦24,500</b> in this presentation demo. 👜✨';
+
+if((x.includes('price')||x.includes('cost')||x.includes('how much')) && (x.includes('urban everyday look')||x.includes('everyday look')))
+return'The <b>Urban Everyday Look</b> is <b>₦18,500</b> in this presentation demo. 👗✨';
+
+if((x.includes('price')||x.includes('cost')||x.includes('how much')) && (x.includes('dress')||x.includes('gown')))
+return'I’d love to give you the exact price! 👗💕 However, I don’t have a verified price for that specific dress in my catalogue yet, so I don’t want to guess. Please contact our Urban Choice staff on '+staff+' and they’ll confirm the current price for you.';
+
+if(x.includes('price')||x.includes('cost')||x.includes('how much'))
+return'Of course! 😊 Which item would you like the price for? You can tell me the product name, for example <b>Street Sneakers</b>, <b>Everyday Bag</b>, or <b>Urban Everyday Look</b>.';
+
+if(x.includes('product')||x.includes('sell')||x.includes('clothes')||x.includes('cloth')||x.includes('shoe')||x.includes('sneaker')||x.includes('bag')||x.includes('accessor'))
+return'Absolutely! 🛍️✨ Urban Choice offers <b>clothing, shoes, bags and fashion accessories</b>. Tell me what type of item you’re looking for and I’ll guide you. 😊';
+
+if(x.includes('deliver')||x.includes('delivery')||x.includes('ship'))
+return'I’d be happy to help with delivery! 🚚💕 I don’t have Urban Choice’s verified delivery policy yet, so I don’t want to give you the wrong information. Please contact our team on '+staff+' and they’ll gladly help you.';
+
+if(x.includes('hour')||x.includes('open')||x.includes('close'))
+return'I don’t have the verified opening hours yet. 😊 Please contact our Urban Choice team on '+staff+' and they’ll give you the latest information.';
+
+if(x.includes('available')||x.includes('availability')||x.includes('stock')||x.includes('size')||x.includes('sizes'))
+return'No problem! 😊 I don’t have live stock or size information connected yet. Please contact our team on '+staff+' and they can check the latest availability for you.';
+
+if(x.includes('contact')||x.includes('support')||x.includes('staff')||x.includes('phone')||x.includes('number'))
+return'Of course! 💕 You can reach the Urban Choice team directly on '+staff+' or email <b>group4bts@gmail.com</b>. I’m also here if you’d like help with anything else! 😊';
+
+if(x.includes('location')||x.includes('where are you')||x.includes('address'))
+return'I don’t have a verified store address yet, and I don’t want to guess. 🥹 Please contact our team on '+staff+' for the correct location.';
+
+if(x.includes('return')||x.includes('exchange'))
+return'I don’t have Urban Choice’s verified return or exchange policy yet. 💕 Please contact our team on '+staff+' so they can give you the correct information.';
+
+if(x.includes('thank')||x.includes('thanks'))
+return'You’re very welcome! 🥰✨ Is there anything else I can help you with?';
+
+if(x.includes('bye')||x.includes('goodbye'))
+return'Bye for now! 👋🏽💕 Thanks for visiting Urban Choice. Come back anytime!';
+
+return'I’d love to help with that! 😊 I don’t have verified information for that particular question yet, and I don’t want to guess. Please contact our friendly Urban Choice staff on '+staff+' and they’ll be happy to assist you. 💕';
+}
+function ask(q){addMsg(q,'user');setTimeout(()=>addMsg(reply(q),'bot'),350)}
+function send(){let i=document.getElementById('chatInput'),q=i.value.trim();if(q){i.value='';ask(q)}}
+function submitForm(e){e.preventDefault();alert('Demo enquiry submitted. Connect this form to your preferred email/form service before using it for real customer enquiries.');e.target.reset()}
+</script>
+</body>
+</html>
